@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_154330) do
+ActiveRecord::Schema.define(version: 2018_11_05_155502) do
+
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.string "image"
+    t.string "first_address_line"
+    t.string "second_address_line"
+    t.string "city"
+    t.integer "province_id"
+    t.string "postal_code"
+    t.string "country"
+    t.string "phone_number"
+    t.string "cell_number"
+    t.string "email_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_customers_on_province_id"
+  end
 
   create_table "provinces", force: :cascade do |t|
     t.string "name"
