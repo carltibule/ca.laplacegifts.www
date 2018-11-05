@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  image: MyString
+  product_type: MyString
+  product_format: MyString
+  product_language: MyString
+  isbn_10: 1
+  isbn_13: 1
+  price: 9.99
+  qoh_new: 1
+  qoh_used: 1
+  length: 9.99
+  width: 9.99
+  height: 9.99
+  weight: 9.99
+  category: one
+  author: one
+
+two:
+  title: MyString
+  description: MyText
+  image: MyString
+  product_type: MyString
+  product_format: MyString
+  product_language: MyString
+  isbn_10: 1
+  isbn_13: 1
+  price: 9.99
+  qoh_new: 1
+  qoh_used: 1
+  length: 9.99
+  width: 9.99
+  height: 9.99
+  weight: 9.99
+  category: two
+  author: two
