@@ -13,4 +13,15 @@ ActiveAdmin.register Author do
 # end
 
 permit_params :first_name, :middle_name, :last_name, :image, :description
+
+    form do |f|
+        f.inputs do
+            f.input :first_name
+            f.input :middle_name
+            f.input :last_name
+            f.input :description
+            f.input :image, as: :file
+        end
+          f.actions
+    end
 end
