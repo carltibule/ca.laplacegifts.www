@@ -39,4 +39,20 @@ permit_params :title, :description, :image, :product_type, :product_format, :pro
             row :updated_at
         end
     end
+
+    index do
+        id_column
+        column "Image" do |product_image|
+            image_tag product_image.image.url(:list_size)
+        end
+
+        column :title
+        column :product_type
+        column "ISBN 10", :isbn_10
+        column "ISBN 13", :isbn_13
+        column :price
+        column "New", :qoh_new
+        column "Used", :qoh_used
+        actions
+    end
 end
