@@ -24,4 +24,16 @@ permit_params :first_name, :middle_name, :last_name, :image, :description
         end
           f.actions
     end
+
+    show do 
+        attributes_table do
+            row :image do |ad|
+                image_tag url_for(ad.image)
+            end
+            row :first_name
+            row :middle_name
+            row :last_name
+            row :description
+        end
+    end
 end
