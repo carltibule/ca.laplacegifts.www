@@ -25,6 +25,18 @@ permit_params :first_name, :middle_name, :last_name, :image, :description
           f.actions
     end
 
+    index do
+        id_column
+
+        column "Image" do |author|
+            image_tag author.image.variant(resize: "150x190")
+        end
+
+        column :first_name
+        column :last_name
+        actions
+    end
+
     show do 
         attributes_table do
             row :image do |ad|
