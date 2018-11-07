@@ -46,6 +46,12 @@ permit_params :first_name, :middle_name, :last_name, :image, :description
             row :middle_name
             row :last_name
             row :description
+
+            row 'Products' do |author|
+                author.products.map{ |product|
+                    link_to product.title, admin_product_path(product)
+                }.join("<br/>").html_safe
+            end
         end
     end
 end
