@@ -1,7 +1,16 @@
 <div class="container">
     <div class="row">
-        <div class ="col">
-            <div id="featured_products_carousel" class="carousel slide" data-ride="carousel">
+        <div class= "col-lg-3">
+            <h1 class="my-4">Shop by Category:</h1>
+            <div class="list-group">
+                <% @categories.each do |category| %>
+                    <%= link_to category.name, '#', class:'list-group-item' %>
+                <% end %>
+            </div>
+        </div>
+
+        <div class= "col-lg-9">
+            <div id="featured_products_carousel" class="carousel slide my-4" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#featured_products_carousel" data-slide-to="0" class="active"></li>
                     <li data-target="#featured_products_carousel" data-slide-to="1" class="active"></li>
@@ -11,13 +20,15 @@
                     <% @first_three_from_last_ten.each_with_index do |product, i| %>
                         <% if i == 0 %>
                             <div class="carousel-item active">
-                                <% image_tag(product.image.url(:list_size), class:"d-block w-100") %>
+                                <%= image_tag('http://placehold.it/900x350') %>
+                            </div>
+                        <% else %>
+                            <div class="carousel-item">
+                                <%= image_tag('http://placehold.it/900x350') %>        
                             </div>
                         <% end %>
 
-                        <div class="carousel-item">
-                            <% image_tag(product.image.url(:list_size), class:"d-block w-100") %>        
-                        </div>
+                        
                     <% end %>
                 </div>
                 <a class="carousel-control-prev" href="#featured_products_carousel" role="button" data-slide="prev">
