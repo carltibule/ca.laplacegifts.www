@@ -2,6 +2,7 @@
 class Author < ApplicationRecord
     has_one_attached :image
     has_many :products
+    validates :first_name, :last_name, :image, presence: true
     
     # Get formatted version of author's name
     def name

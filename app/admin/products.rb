@@ -27,7 +27,6 @@ permit_params :title, :description, :image, :product_type, :product_format, :pro
             row :isbn_10
             row :isbn_13
             row :price
-            row :price
             row :qoh_new
             row :qoh_used
             row :length
@@ -36,7 +35,6 @@ permit_params :title, :description, :image, :product_type, :product_format, :pro
             row :weight
             row :category
             row :author
-            row :created_at
             row :updated_at
         end
     end
@@ -55,5 +53,32 @@ permit_params :title, :description, :image, :product_type, :product_format, :pro
         column "New", :qoh_new
         column "Used", :qoh_used
         actions
+    end
+
+    form do |f|
+        f.inputs do
+            f.input :title
+            f.input :description
+            f.input :image
+            f.input :product_type
+            f.input :product_format
+            f.input :product_language
+            f.input :isbn_10
+            f.input :isbn_13
+            f.input :price
+            f.input :qoh_new
+            f.input :qoh_used
+            f.input :length
+            f.input :width
+            f.input :height
+            f.input :weight
+            f.input :author
+        end
+
+        f.inputs 'Select categories' do
+            f.input :categories, as: :check_boxes
+        end
+
+        f.actions
     end
 end
