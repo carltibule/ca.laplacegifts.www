@@ -11,7 +11,7 @@ ActiveAdmin.register Product do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-permit_params :title, :description, :image, :product_type, :product_format, :product_language, :isbn_10, :isbn_13, :price, :qoh_new, :qoh_used, :length, 
+permit_params :title, :description, :image, :product_format, :product_language, :isbn_10, :isbn_13, :price, :qoh_new, :qoh_used, :length, 
     :width, :height, :weight, :author_id, category_ids:[]
 
     show do
@@ -25,12 +25,12 @@ permit_params :title, :description, :image, :product_type, :product_format, :pro
             end
             row :title
             row :description
-            row :product_type
             row :product_format
             row :product_language
             row :isbn_10
             row :isbn_13
             row :price
+            row :sale_discount
             row :qoh_new
             row :qoh_used
             row :length
@@ -54,10 +54,10 @@ permit_params :title, :description, :image, :product_type, :product_format, :pro
         end
 
         column :title
-        column :product_type
         column "ISBN 10", :isbn_10
         column "ISBN 13", :isbn_13
         column :price
+        column :sale_discount
         column "New", :qoh_new
         column "Used", :qoh_used
         actions
@@ -68,12 +68,12 @@ permit_params :title, :description, :image, :product_type, :product_format, :pro
             f.input :title
             f.input :description
             f.input :image
-            f.input :product_type
             f.input :product_format
             f.input :product_language
             f.input :isbn_10
             f.input :isbn_13
             f.input :price
+            f.input :sale_discount
             f.input :qoh_new
             f.input :qoh_used
             f.input :length
