@@ -1,2 +1,33 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <h1><%= @category.name%></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 card-deck">
+            <% @products_in_tag.each do |product| %>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <%= image_tag(product.image.url(:detail_size), class:'img-fluid')%>
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="#"> <%= product.title %> </a>
+                            </h5>
+                            <h6>
+                                <%= number_to_currency(product.price)%>
+                            </h6>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                            </p>
+                            </div>
+                            <div class="card-footer">
+                                <<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

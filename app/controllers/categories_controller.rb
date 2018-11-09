@@ -3,5 +3,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @category = Category.find(params[:id])
+    @products_in_tag = @category.products
   end
 end
