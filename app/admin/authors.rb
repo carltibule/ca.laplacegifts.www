@@ -29,7 +29,11 @@ permit_params :first_name, :middle_name, :last_name, :image, :description
         id_column
 
         column "Image" do |author|
-            image_tag author.image.variant(resize: "150x190")
+            if author.image.attached?
+                image_tag author.image.variant(resize: "150x190")
+            else
+                image_tag('PlaceholderPersonPicture.png', size: '150x150', alt: 'Placeholder image')
+            end
         end
 
         column :first_name
@@ -40,7 +44,11 @@ permit_params :first_name, :middle_name, :last_name, :image, :description
     show do 
         attributes_table do
             row :image do |ad|
-                image_tag url_for(ad.image)
+                if ad.image.attached?
+                    image_tag url_for(ad.image)
+                else
+                    image_tag('PlaceholderPersonPicture.png', size: '200x200', alt: 'Placeholder image')
+                end
             end
             row :first_name
             row :middle_name

@@ -17,7 +17,11 @@ permit_params :title, :description, :image, :product_type, :product_format, :pro
     show do
         attributes_table do
             row :image do |ad|
-                image_tag ad.image.url(:detail_size)
+                if ad.image.url.nil?
+                    image_tag('NoImageAvailablePicture.png', size:'317x400', alt: 'Placeholder image')
+                else
+                    image_tag ad.image.url(:detail_size)
+                end
             end
             row :title
             row :description
@@ -41,8 +45,12 @@ permit_params :title, :description, :image, :product_type, :product_format, :pro
 
     index do
         id_column
-        column "Image" do |product_image|
-            image_tag product_image.image.url(:list_size)
+        column "Image" do |product|
+            if product.image.url.nil?
+                image_tag('NoImageAvailablePicture.png', size:'150x190', alt: 'Placeholder image')
+            else
+                image_tag product.image.url(:list_size)
+            end
         end
 
         column :title
