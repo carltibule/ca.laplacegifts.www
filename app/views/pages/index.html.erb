@@ -17,17 +17,15 @@
                     <li data-target="#featured_products_carousel" data-slide-to="2" class="active"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
-                    <% @first_three_from_last_ten.each_with_index do |product, i| %>
-                        <% if i == 0 %>
-                            <div class="carousel-item active">
-                                <%= image_tag('http://placehold.it/900x350', class:"d-block img-fluid") %>
-                            </div>
-                        <% else %>
-                            <div class="carousel-item">
-                                <%= image_tag('http://placehold.it/900x350', class:"d-block img-fluid") %>        
-                            </div>
-                        <% end %>
-                    <% end %>
+                     <div class="carousel-item active">
+                        <%= image_tag('http://placehold.it/900x350', class:"d-block img-fluid") %>
+                    </div>
+                    <div class="carousel-item">
+                        <%= image_tag('http://placehold.it/900x350', class:"d-block img-fluid") %>        
+                    </div>
+                    <div class="carousel-item">
+                        <%= image_tag('http://placehold.it/900x350', class:"d-block img-fluid") %>        
+                    </div>
                 </div>
                 <a class="carousel-control-prev" href="#featured_products_carousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -39,21 +37,20 @@
                 </a>
             </div>
             <div class="row">
-                <% 10.times do %>
+                <% @products_on_sale.each do |product| %>
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100">
-                            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                            <%= image_tag(product.image.url(:detail_size), class:'img-fluid')%>
 
                             <div class="card-body">
-                                <h4 class="card-title">
-                                <a href="#">Item One</a>
-                                </h4>
-                                <h5>$24.99</h5>
+                                <h5 class="card-title">
+                                <a href="#"> <%= product.title %> </a>
+                                </h5>
+                                <h6><s><%= number_to_currency(product.price) %></s> <%= number_to_currency(product.price - product.price * product.sale_discount)%> (-<%= number_to_percentage(product.sale_discount * 100, precision: 2)%>)</h6>
                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                             </div>
-
                             <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                <<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>>
                             </div>
                         </div>
                     </div>
