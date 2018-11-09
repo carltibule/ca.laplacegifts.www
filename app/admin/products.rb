@@ -12,13 +12,13 @@ ActiveAdmin.register Product do
 #   permitted
 # end
 permit_params :title, :description, :image, :product_format, :product_language, :isbn_10, :isbn_13, :price, :qoh_new, :qoh_used, :length, 
-    :width, :height, :weight, :author_id, category_ids:[]
+    :width, :height, :weight, :author_id, :sale_discount, category_ids:[]
 
     show do
         attributes_table do
             row :image do |ad|
                 if ad.image.url.nil?
-                    image_tag('NoImageAvailablePicture.png', size:'317x400', alt: 'Placeholder image')
+                    image_tag('NoImageAvailablePicture.png', size:'400x400', alt: 'Placeholder image')
                 else
                     image_tag ad.image.url(:detail_size)
                 end
@@ -47,7 +47,7 @@ permit_params :title, :description, :image, :product_format, :product_language, 
         id_column
         column "Image" do |product|
             if product.image.url.nil?
-                image_tag('NoImageAvailablePicture.png', size:'150x190', alt: 'Placeholder image')
+                image_tag('NoImageAvailablePicture.png', size:'150x150', alt: 'Placeholder image')
             else
                 image_tag product.image.url(:list_size)
             end
