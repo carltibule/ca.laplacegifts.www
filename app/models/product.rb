@@ -10,4 +10,8 @@ class Product < ApplicationRecord
   validates :sale_discount, numericality: {greater_than_or_equal_to: 0.01, less_than_or_equal_to: 1}, allow_blank: true
   validates :length, :width, :height, :weight, numericality: {greater_than_or_equal_to: 0}, allow_blank: true
   validates :qoh_used, numericality: {only_integer: true, greater_than_or_equal_to: 0}, allow_blank: true
+
+  def short_description;
+    truncate(:description, length: 15)
+  end
 end
