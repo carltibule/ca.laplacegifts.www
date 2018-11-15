@@ -1,6 +1,3 @@
 class Customer < ApplicationRecord
-  has_many :home_address, class_name: 'Address', foreign_key: 'home_address_id'
-  has_many :shipping_address, class_name: 'Address', foreign_key: 'shipping_address_id'
-  accepts_nested_attributes_for :home_address, :shipping_address
-  validates :first_name, :last_name, :home_address, :shipping_address, :email_address, :password, presence: true
+  validates :first_name, :last_name, :email_address, :password, presence: true
 end
