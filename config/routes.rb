@@ -10,5 +10,4 @@ Rails.application.routes.draw do
 
   # Static pages
   root to: 'pages#index'
-  get 'about', to:'pages#about', as: 'about'
 end

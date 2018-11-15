@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
     def about
     end
+
+    def register
+        @customer = Customer.new
+    end
 end
