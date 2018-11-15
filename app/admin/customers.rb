@@ -11,7 +11,7 @@ ActiveAdmin.register Customer do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-    permit_params :first_name, :middle_name, :last_name, :first_address_line, :second_address_line, :city, :province, :postal_code, :phone_number, :cell_number, :email_address, :password
+    permit_params :first_name, :middle_name, :last_name, :first_address_line, :second_address_line, :city, :province_id, :postal_code, :phone_number, :cell_number, :email_address, :password
 
     form do |f|
         f.inputs "Customer information" do
@@ -34,5 +34,13 @@ ActiveAdmin.register Customer do
         end
 
         f.actions
+    end
+
+    index do
+        column :first_name
+        column :middle_name
+        column :last_name
+        column :email_address
+        actions
     end
 end
