@@ -1,3 +1,10 @@
 class Customer < ApplicationRecord
-  validates :first_name, :last_name, :email_address, :password, presence: true
+  belongs_to :province
+  validates :first_name, :last_name, :first_address_line, :city, :province, :postal_code, :email_address, :password, presence: true
+  validates :postal_code, format: {with: /[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]/,
+    message: "Invalid Canadian postal code"}
+  validates :email_address, format: {with: /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/,
+    message: "Invalid email address"}
+  validates :phone_number, :cell_number, format: {with: /((\d{3})-|^\d{3}[.-]?)?\d{3}[.-]?\d{4}/,
+    message: "Invalid phone/cellphone number"}, allow_blank: true
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_054226) do
+ActiveRecord::Schema.define(version: 2018_11_15_061737) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -94,12 +94,18 @@ ActiveRecord::Schema.define(version: 2018_11_15_054226) do
     t.string "middle_name"
     t.string "last_name"
     t.string "image"
+    t.string "first_address_line"
+    t.string "second_address_line"
+    t.string "city"
+    t.integer "province_id"
+    t.string "postal_code"
     t.string "phone_number"
     t.string "cell_number"
     t.string "email_address"
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_customers_on_province_id"
   end
 
   create_table "product_categories", force: :cascade do |t|

@@ -4,9 +4,12 @@ one:
   first_name: MyString
   middle_name: MyString
   last_name: MyString
-  home_address: one
-  shipping_address: one
   image: MyString
+  first_address_line: MyString
+  second_address_line: MyString
+  city: MyString
+  province: one
+  postal_code: MyString
   phone_number: MyString
   cell_number: MyString
   email_address: MyString
@@ -16,9 +19,12 @@ two:
   first_name: MyString
   middle_name: MyString
   last_name: MyString
-  home_address: two
-  shipping_address: two
   image: MyString
+  first_address_line: MyString
+  second_address_line: MyString
+  city: MyString
+  province: two
+  postal_code: MyString
   phone_number: MyString
   cell_number: MyString
   email_address: MyString
