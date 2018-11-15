@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_231039) do
+ActiveRecord::Schema.define(version: 2018_11_15_002350) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2018_11_14_231039) do
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
+    t.index ["customer_id"], name: "index_addresses_on_customer_id"
     t.index ["province_id"], name: "index_addresses_on_province_id"
   end
 
@@ -85,6 +87,23 @@ ActiveRecord::Schema.define(version: 2018_11_14_231039) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.integer "home_address_id"
+    t.integer "shipping_address_id"
+    t.string "image"
+    t.string "phone_number"
+    t.string "cell_number"
+    t.string "email_address"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_address_id"], name: "index_customers_on_home_address_id"
+    t.index ["shipping_address_id"], name: "index_customers_on_shipping_address_id"
   end
 
   create_table "product_categories", force: :cascade do |t|
