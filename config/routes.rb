@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :customers
   # get 'categories/index'
   # get 'categories/show'
   devise_for :admin_users, ActiveAdmin::Devise.config
