@@ -23,4 +23,12 @@
       padding-top: 56px;
     }
   }
+
+  .alert-alert {
+    @extend .alert-warning;
+  }
+  
+  .alert-notice {
+    @extend .alert-info;
+  }
   

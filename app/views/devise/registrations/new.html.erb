@@ -1,5 +1,7 @@
+<div class="container">
+<div class="row">
+<div class="col-lg-9">
 <h1><%= t('.sign_up') %></h1>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= bootstrap_devise_error_messages! %>
 
@@ -30,7 +32,7 @@
 
   <div class="form-group">
     <%= f.label :province %>
-    <%= f.text_field :province, class: 'form-control'%>
+    <%= f.collection_select :province_id, Province.order(:name), :id, :name, include_blank: true, class: 'form-control'%>
   </div>
 
   <div class="form-group">
@@ -68,3 +70,6 @@
 <% end %>
 
 <%= render 'devise/shared/links' %>
+</div>
+</div>
+</div>
