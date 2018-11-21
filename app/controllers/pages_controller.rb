@@ -3,4 +3,7 @@ class PagesController < ApplicationController
         @categories = Category.all
         @products_on_sale = Product.where('sale_discount NOT NULL')
     end
+
+    def cart 
+    end
 end

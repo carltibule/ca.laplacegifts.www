@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get 'category/:id', to: 'categories#show', as: 'category'
 
   # Static pages
+  get 'my_cart', to: 'pages#cart', as: 'cart'
   root to: 'pages#index'
 end
