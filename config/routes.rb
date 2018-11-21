@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'products/show'
   devise_for :customers
   # get 'categories/index'
   # get 'categories/show'
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   
   # Customer
   resources :customers
+  resources :products
 
   # Category
   get 'category/:id', to: 'categories#show', as: 'category'

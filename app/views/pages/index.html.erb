@@ -44,7 +44,7 @@
 
                             <div class="card-body">
                                 <h5 class="card-title">
-                                <a href="#"> <%= product.title %> </a>
+                                <%= link_to product.title, product %>
                                 </h5>
                                 <h6><s><%= number_to_currency(product.price) %></s> <%= number_to_currency(product.price - product.price * product.sale_discount)%> (-<%= number_to_percentage(product.sale_discount * 100, precision: 2)%>)</h6>
                                 <p class="card-text"><%= "#{product.description[0,75]}..." %></p>
