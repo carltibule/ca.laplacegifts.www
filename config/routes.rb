@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'order_items/create'
-  get 'order_items/update'
-  get 'order_items/destroy'
   get 'carts/show'
   get 'products/show'
   devise_for :customers
@@ -15,7 +12,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :products, only: [:index, :show]
   resource :cart, only: [:show]
-  resource :order_items, only: [:create, :update, :destroy]
+  resources :order_items, only: [:create, :update, :destroy]
 
   # Category
   get 'category/:id', to: 'carts#show', as: 'category'
@@ -25,4 +22,5 @@ Rails.application.routes.draw do
 
   # Others
   match '/pages/add_to_cart' => 'pages#add_to_cart', :as => :add_to_cart, via: [:post]
+
 end
