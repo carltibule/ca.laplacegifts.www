@@ -20,3 +20,8 @@ Province.create(:name => 'Prince Edward Island', :postal_abbreviation => 'PE', :
 Province.create(:name => 'Quebec', :postal_abbreviation => 'QC', :gst => 0.05, :pst => 0.14975)
 Province.create(:name => 'Saskatchewan', :postal_abbreviation => 'SK', :gst => 0.05, :pst => 0.11)
 Province.create(:name => 'Yukon', :postal_abbreviation => 'YK', :gst => 0.05)
+
+OrderStatus.create(:id => 1, :name => 'In progress')
+OrderStatus.create(:id => 2, :name => 'Placed')
+OrderStatus.create(:id => 3, :name => 'Shipped')
+OrderStatus.create(:id => 4, :name => 'Cancelled')
