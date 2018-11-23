@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   belongs_to :author, optional: true
   has_many :product_categories, dependent: :destroy
   has_many :categories, through: :product_categories, dependent: :destroy
+  has_many :order_items
   mount_uploader :image, ImageUploader
 
   validates :title, :price, :qoh_new, presence: true
