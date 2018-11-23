@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   # Customer
   resources :customers
   resources :products
+  resource :cart, only: [:show]
+  resource :order_items, only: [:create, :update, :destroy]
 
   # Category
   get 'category/:id', to: 'categories#show', as: 'category'
