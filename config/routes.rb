@@ -13,15 +13,14 @@ Rails.application.routes.draw do
   
   # Customer
   resources :customers
-  resources :products
+  resources :products, only: [:index, :show]
   resource :cart, only: [:show]
   resource :order_items, only: [:create, :update, :destroy]
 
   # Category
-  get 'category/:id', to: 'categories#show', as: 'category'
+  get 'category/:id', to: 'carts#show', as: 'category'
 
   # Static pages
-  get 'my_cart', to: 'pages#cart', as: 'cart'
   root to: 'pages#index'
 
   # Others
