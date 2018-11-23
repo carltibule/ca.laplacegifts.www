@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
+    before_action :current_order
     protect_from_forgery with: :exception
     helper_method :current_order
 
