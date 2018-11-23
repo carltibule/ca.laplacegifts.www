@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
     def cart 
     end
+
+    def add_to_cart
+        raise "#{params[:order_item][:quantity]}"
+    end
 end

@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   # Static pages
   get 'my_cart', to: 'pages#cart', as: 'cart'
   root to: 'pages#index'
+
+  # Others
+  match '/pages/add_to_cart' => 'pages#add_to_cart', :as => :add_to_cart, via: [:post]
 end

@@ -22,7 +22,10 @@
                         <% end %>
 					</h4>
 					<div class="action">
-						<button class="btn btn-default" type="button">Add to cart</button>
+						<%= form_for(OrderItem.new, :url => :add_to_cart) do |f| %>
+							<%= f.number_field(:quantity)%>
+							<%= f.submit "Add to cart" %>
+						<% end %>
 					</div>
 				</div>
 			</div>
